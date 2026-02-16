@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <a href=""><img src="assets/logo_desktop.png" alt="" /></a>
+      <a href=""><img src="assets/logo_desktop.svg" alt="" /></a>
       <nav>
         <ul>
           <li><a class="active" href="">Главная</a></li>
@@ -30,7 +30,9 @@
       <section class="programs">
         <article class="program">
           <div class="programCardHead">
-            <img class="catSlimImg" src="assets/icon_cat_slim.png" alt="" />
+            <div class="programIconCircle">
+              <img class="catSlimImg" src="assets/cat_slim.svg" alt="" />
+            </div>
             <h3>Похудение</h3>
           </div>
           <p>
@@ -42,7 +44,9 @@
         </article>
         <article class="program">
           <div class="programCardHead">
-            <img class="catProImg" src="assets/icon_cat_pro.png" alt="" />
+            <div class="programIconCircle">
+              <img class="catProImg" src="assets/cat_pro.svg" alt="" />
+            </div>
             <h3>Набор массы</h3>
           </div>
           <p>
@@ -56,7 +60,7 @@
         <h2>Как это работает</h2>
         <ol>
           <li>
-            <div class="iconBox"><img src="assets/icon_leaf.png" alt="" /></div>
+            <div class="iconBox"><img src="assets/icon_leaf.svg" alt="" /></div>
 
             <p>
               Функциональное питание содержит только полезные питательные
@@ -64,7 +68,7 @@
             </p>
           </li>
           <li>
-            <div class="iconBox"><img src="assets/icon_tub.png" alt="" /></div>
+            <div class="iconBox"><img src="assets/icon_tub.svg" alt="" /></div>
 
             <p>
               Выпускается в виде порошка, который нужно лишь залить кипятком и
@@ -72,7 +76,7 @@
             </p>
           </li>
           <li>
-            <div class="iconBox"><img src="assets/icon_eat.png" alt="" /></div>
+            <div class="iconBox"><img src="assets/icon_eat.svg" alt="" /></div>
 
             <p>
               Замените один-два приема обычной еды на наше функциональное
@@ -81,7 +85,7 @@
           </li>
           <li>
             <div class="iconBox">
-              <img src="assets/icon_alarm.png" alt="" />
+              <img src="assets/icon_alarm.svg" alt="" />
             </div>
 
             <p>
@@ -119,22 +123,35 @@
         </article>
 
         <div class="compare">
-          <img src="assets/example.png" alt="Кот" />
+          <img
+            class="compareImg compareImg--after"
+            src="assets/example_after.png"
+            alt=""
+          />
+
+          <img
+            class="compareImg compareImg--before"
+            src="assets/example_before.png"
+            alt="Кот"
+          />
 
           <div class="compareControls">
             <span class="compareLabel">Было</span>
-
-            <input type="range" min="0" max="100" value="50" />
-
+            <input
+              class="compareRange"
+              type="range"
+              min="0"
+              max="1000"
+              value="500"
+            />
             <span class="compareLabel">Стало</span>
           </div>
         </div>
       </section>
+
       <section class="contacts">
         <div class="contactsCard">
-          <h3 class="contacts__title">
-            Приглашаем<br />к сотрудничеству дилеров!
-          </h3>
+          <h3>Приглашаем<br />к сотрудничеству дилеров!</h3>
 
           <address>
             <div>ул. Большая Конюшенная, д. 19/8</div>
@@ -144,33 +161,31 @@
         <div class="map" id="map" aria-label="Карта"></div>
       </section>
     </main>
-    <footer></footer>
-    <script
-      src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU"
-      defer
-    ></script>
-    <script defer>
-      document.addEventListener("DOMContentLoaded", () => {
-        if (!window.ymaps) return;
+    <footer>
+      <a class="footerLogo" href="#"
+        ><img src="assets/logo_footer.svg" alt=""
+      /></a>
+      <ul class="footerSocial">
+        <li>
+          <a href="#"><img src="assets/icon_vkontakte.svg" alt="VK" /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="assets/icon_instagram.svg" alt="Instagram"
+          /></a>
+        </li>
+        <li>
+          <a href="#"><img src="assets/icon_facebook.svg" alt="Facebook" /></a>
+        </li>
+      </ul>
 
-        ymaps.ready(() => {
-          const center = [59.938631, 30.323055]; // СПб, рядом с Б. Конюшенной
-          const map = new ymaps.Map("map", {
-            center,
-            zoom: 15,
-            controls: [],
-          });
+      <a class="footerAcademy" href="#">
+        <span>HTML Academy</span>
+        <img src="assets/logo_HTMLAcademy.svg" alt="" />
+      </a>
+    </footer>
 
-          const placemark = new ymaps.Placemark(
-            center,
-            {},
-            { preset: "islands#greenDotIcon" }
-          );
-          map.geoObjects.add(placemark);
-
-          map.behaviors.disable("scrollZoom");
-        });
-      });
-    </script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=0203aeef-ca76-4e6e-a188-699be429d731&lang=ru_RU"></script>
+    <script src="script.js"></script>
   </body>
 </html>
