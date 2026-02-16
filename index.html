@@ -119,10 +119,58 @@
         </article>
 
         <div class="compare">
-          <img src="assets/example.png" width="600px" alt="" />
+          <img src="assets/example.png" alt="Кот" />
+
+          <div class="compareControls">
+            <span class="compareLabel">Было</span>
+
+            <input type="range" min="0" max="100" value="50" />
+
+            <span class="compareLabel">Стало</span>
+          </div>
         </div>
+      </section>
+      <section class="contacts">
+        <div class="contactsCard">
+          <h3 class="contacts__title">
+            Приглашаем<br />к сотрудничеству дилеров!
+          </h3>
+
+          <address>
+            <div>ул. Большая Конюшенная, д. 19/8</div>
+            <div>Санкт-Петербург</div>
+          </address>
+        </div>
+        <div class="map" id="map" aria-label="Карта"></div>
       </section>
     </main>
     <footer></footer>
+    <script
+      src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU"
+      defer
+    ></script>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!window.ymaps) return;
+
+        ymaps.ready(() => {
+          const center = [59.938631, 30.323055]; // СПб, рядом с Б. Конюшенной
+          const map = new ymaps.Map("map", {
+            center,
+            zoom: 15,
+            controls: [],
+          });
+
+          const placemark = new ymaps.Placemark(
+            center,
+            {},
+            { preset: "islands#greenDotIcon" }
+          );
+          map.geoObjects.add(placemark);
+
+          map.behaviors.disable("scrollZoom");
+        });
+      });
+    </script>
   </body>
 </html>
