@@ -9,31 +9,46 @@
 
   <body>
     <header class="header">
-      <a class="header__logo" href="#page" aria-label="Cat Energy — на главную">
-        <img
-          class="header__logo-img header__logo-img--desktop"
-          src="assets/logo_desktop.svg"
-          alt=""
-        />
-        <img
-          class="header__logo-img header__logo-img--tablet"
-          src="assets/logo_tablet.svg"
-          alt=""
-        />
-        <img
-          class="header__logo-img header__logo-img--mobile1"
-          src="assets/logo_mobile1.svg"
-          alt=""
-        />
-        <img
-          class="header__logo-img header__logo-img--mobile2"
-          src="assets/logo_mobile2.svg"
-          alt=""
-        />
+      <a
+        class="header__logo header__logo--desktop"
+        href="#page"
+        aria-label="Cat Energy — на главную"
+      >
+        <img class="header__logo-img" src="assets/logo_desktop.svg" alt="" />
+      </a>
+      <a
+        class="header__logo header__logo--tablet"
+        href="#page"
+        aria-label="Cat Energy — на главную"
+      >
+        <img class="header__logo-img" src="assets/logo_tablet.svg" alt="" />
+      </a>
+      <a
+        class="header__logo header__logo--mobile1"
+        href="#page"
+        aria-label="Cat Energy — на главную"
+      >
+        <img class="header__logo-img" src="assets/logo_mobile1.svg" alt="" />
+      </a>
+      <a
+        class="header__logo header__logo--mobile2"
+        href="#page"
+        aria-label="Cat Energy — на главную"
+      >
+        <img class="header__logo-img" src="assets/logo_mobile2.svg" alt="" />
       </a>
 
       <nav class="header__nav" aria-label="Основное меню">
-        <ul class="header__menu">
+        <button
+          class="header__burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="header-menu"
+        >
+          <img src="assets/icon_burger.svg" class="header__burger-img" alt="" />
+        </button>
+        <ul class="header__menu" id="header-menu">
           <li class="header__menu-item">
             <a
               class="header__menu-link header__menu-link--active"
@@ -89,7 +104,10 @@
             сбросить лишний вес.
           </p>
 
-          <a class="program__link" href="#programs">Каталог slim →</a>
+          <a class="program__link" href="#programs"
+            >Каталог slim
+            <img class="program__icon-arrow" src="assets/icon_arrow.svg" alt=""
+          /></a>
         </article>
 
         <article class="program program--pro">
@@ -105,7 +123,10 @@
             Energy Pro поможет вашему коту нарастить необходимые мышцы!
           </p>
 
-          <a class="program__link" href="#programs">Каталог pro →</a>
+          <a class="program__link" href="#programs"
+            >Каталог pro
+            <img class="program__icon-arrow" src="assets/icon_arrow.svg" alt=""
+          /></a>
         </article>
       </section>
 
@@ -228,6 +249,14 @@
               max="1000"
               value="500"
               data-compare-range
+            />
+
+            <input
+              class="compare__toggle"
+              id="compare-toggle"
+              type="checkbox"
+              data-compare-toggle
+              aria-label="Переключить Было/Стало"
             />
 
             <span class="compare__label">Стало</span>
