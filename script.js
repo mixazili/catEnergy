@@ -3,34 +3,47 @@ ymaps.ready(init);
 function init() {
   if (!window.ymaps) return;
 
-  ymaps.ready(() => {
-    const catEnergyOffice = [59.938631, 30.323055];
-    const center = [59.939631, 30.310055];
+  const catEnergyOffice = [59.938631, 30.323055];
 
-    const map = new ymaps.Map(
-      "map",
-      {
-        center,
-        zoom: 15,
-        controls: [],
-      },
-      {
-        suppressMapOpenBlock: true,
-      }
-    );
+  const center = [59.939631, 30.310055]
 
-    const placemark = new ymaps.Placemark(
-      catEnergyOffice,
-      {},
-      {
-        iconLayout: "default#image",
-        iconImageHref: "assets/map_pin.png",
-        iconImageSize: [80, 80],
-        iconImageOffset: [-40, -80],
-      }
-    );
+  const getCenter = () => {
+    const w = window.innerWidth;
+    if (w <= 1439) return catEnergyOffice;
+    return center;
+  };
 
-    map.geoObjects.add(placemark);
+  const map = new ymaps.Map(
+    "map",
+    {
+      center: getCenter(),
+      zoom: 15,
+      controls: [],
+    },
+    {
+      suppressMapOpenBlock: true,
+    }
+  );
+
+  const placemark = new ymaps.Placemark(
+    catEnergyOffice,
+    {},
+    {
+      iconLayout: "default#image",
+      iconImageHref: "assets/map_pin.png",
+      iconImageSize: [80, 80],
+      iconImageOffset: [-40, -80],
+    }
+  );
+
+  map.geoObjects.add(placemark);
+
+  let t;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      map.setCenter(getCenter(), map.getZoom(), { duration: 200 });
+    }, 100);
   });
 }
 

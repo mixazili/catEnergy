@@ -412,10 +412,6 @@ textarea {
   display: inline-block;
   font-size: 20px;
   text-transform: uppercase;
-  text-decoration-line: underline;
-  text-decoration-style: dashed;
-  text-decoration-color: var(--gray-light);
-  text-underline-offset: 6px;
 }
 
 .compare__range {
@@ -501,6 +497,7 @@ textarea {
 
 .contacts__map {
   height: 400px;
+  width: 100%;
 }
 
 /* Footer */
@@ -653,6 +650,61 @@ textarea {
   }
   .how-it-works__item {
     width: calc(50% - 80px);
+  }
+
+  .example {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 90px 42px 30px 30px;
+    gap: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--white) 0 60%,
+      var(--light) 60% 100%
+    );
+  }
+  .example__content {
+    width: 100%;
+    margin: 0;
+  }
+  .example__text {
+    margin: 60px 0 50px;
+  }
+  .stats {
+    flex-wrap: nowrap;
+  }
+  .stats__term {
+    background-color: var(--white);
+  }
+  .stats__cost {
+    margin-left: auto;
+    flex-basis: auto;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+  }
+  .stats__cost .stats__value {
+    margin-left: auto;
+  }
+  .compare {
+    width: 100%;
+  }
+
+  .contacts {
+    height: 600px;
+  }
+
+  .contacts__card {
+    position: static;
+    margin: 0;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 70px;
+  }
+
+  .footer {
+    padding: 55px 30px 60px;
   }
 }
 
