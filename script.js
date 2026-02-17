@@ -33,3 +33,41 @@ function init() {
     map.geoObjects.add(placemark);
   });
 }
+
+document.querySelectorAll("[data-compare]").forEach((compare) => {
+  const range = compare.querySelector("[data-compare-range]");
+  const stage = compare.querySelector(".compare__stage");
+  const afterImg = compare.querySelector(".compare__img--after");
+  const beforeImg = compare.querySelector(".compare__img--before")
+
+  const THUMB_RADIUS = 17;
+
+  const update = () => {
+    const min = Number(range.min) || 0;
+    const max = Number(range.max) || 1000;
+    const val = Number(range.value) || 0;
+
+    const t = (val - min) / (max - min); 
+
+    const rangeRect = range.getBoundingClientRect();
+    const stageRect = stage.getBoundingClientRect();
+
+    const xOnRange =
+      THUMB_RADIUS + t * (rangeRect.width - THUMB_RADIUS * 2);
+
+    const xInStage = (rangeRect.left + xOnRange) - stageRect.left;
+
+    const rightInsetPx = Math.max(0, stageRect.width - xInStage);
+    const leftInsetPx = Math.max(0, xInStage);
+
+    afterImg.style.clipPath = `inset(0px ${rightInsetPx}px 0px 0px)`;
+    beforeImg.style.clipPath = `inset(0px 0px 0px ${leftInsetPx}px)`;
+  };
+
+  range.addEventListener("input", update);
+  window.addEventListener("resize", update);
+  update();
+});
+
+
+
